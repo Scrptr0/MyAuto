@@ -1,0 +1,135 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Page Background */
+  body {
+    background-color: #F2F3F6;
+    font-family: Arial, sans-serif;
+  }
+
+  /*Car Selector Buttons*/
+
+  .car-selector button{
+    background-color: #e9e9f07a;
+  }
+
+  .car-selector button:active{
+    background-color: white;
+  }
+
+  span{
+    padding-top: 5px;
+  }
+  
+  /* Sidebar Container */
+  .box-side {
+    width: 270px;
+    height: auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    position: relative;
+    top: 148px;
+    left: 435px;
+  }
+  
+  /* Car Selector (Tabs) */
+  .car-selector {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px 15px 0 0;
+  }
+  
+  .car,
+  .tractor,
+  .bike {
+    flex: 1;
+    border: none;
+    background: white;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .car {
+    border-top-left-radius: 15px;
+    border-right: 1px solid #E9E9F0;
+  }
+  
+  .bike {
+    border-top-right-radius: 15px;
+    border-left: 1px solid #E9E9F0;
+  }
+  
+  
+  /* Form Properties */
+  .properties {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .properties label {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 5px;
+  }
+  
+  .properties select {
+    padding: 8px;
+    border: 1px solid #E9E9F0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Price Selector */
+  .price-selector {
+    padding: 10px;
+  }
+  
+  .selector-top h6 {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 5px;
+  }
+  
+  .selector-bottom {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .selector-bottom input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #E9E9F0;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  /* Search Button */
+  .search-btn {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .search-btn button {
+    width: 100%;
+    background-color: #FF5400;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .search-btn button:hover {
+    background-color: #E64900;
+  }
+  
