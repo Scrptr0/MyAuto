@@ -1,15 +1,24 @@
-import { useState } from 'react'
-import './App.css'
-import SideBar from "./components/SideBar.jsx"
+import { useState, useEffect } from "react";
+import "./App.css";
+import SideBar from "./components/SideBar.jsx";
+import axios from "axios";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [manufacturers, setManufacturers] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://static.my.ge/myauto/js/mans.json").then((response) => {
+        setManufacturers(response.data);
+      }).catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   return (
     <>
-    <SideBar/>
+      <SideBar manufacturers={manufacturers} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
