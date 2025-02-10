@@ -1,52 +1,30 @@
-function SideBar({ manufacturers }) {
+import React from "react";
+import Filters from "./Filters"; // Filters component will handle the actual filters
+
+function SideBar({ setVehicleType, ...filterProps }) {
   return (
-    <>
-      <div className="box-side">
-        <div className="car-selector">
-          <button className="car">
-            <img src="\src\photos\car.png" alt="" />
-          </button>
-          <button className="tractor">
-            <img src="\src\photos\tractor.png" alt="" />
-          </button>
-          <button className="bike">
-            <img src="\src\photos\moto.png" alt="" />
-          </button>
-        </div>
-
-        <div className="properties">
-          <label>გარიგების ტიპი</label>
-          <select className="sale-type" name="" id="" value={1}>
-            <option value="">იყიდება</option>
-          </select>
-
-          <label>მწარმოებელი</label>
-          <select className="model" name="" id="">
-            <option value="">ყველა მწარმოებელი</option>
-            {manufacturers.map((brand) => (
-              <option>{brand.man_name}</option>
-            ))}
-          </select>
-          <label>კატეგორია</label>
-          <select className="category" name="" id="" value={1}>
-            <option value="">ყველა კატეგორია</option>
-          </select>
-        </div>
-        <div className="price-selector">
-          <div className="selector-top">
-            <h6>ფასი</h6>
-          </div>
-          <div className="selector-bottom">
-            <input placeholder="დან" type="text" />
-            <span>-</span>
-            <input placeholder="მდე" type="text" />
-          </div>
-        </div>
-        <div className="search-btn">
-          <button>ძებნა</button>
-        </div>
+    <div className="box-side">
+      {/* Select Vehicle Type */}
+      <div className="car-selector">
+        <button className="car" onClick={() => setVehicleType("car")}>
+          <img src="\src\photos\car.png" alt="Car" />
+        </button>
+        <button className="tractor" onClick={() => setVehicleType("tractor")}>
+          <img src="\src\photos\tractor.png" alt="Tractor" />
+        </button>
+        <button className="bike" onClick={() => setVehicleType("moto")}>
+          <img src="\src\photos\moto.png" alt="Motorcycle" />
+        </button>
       </div>
-    </>
+
+      {/* Filters Component */}
+      <Filters {...filterProps} />
+
+      {/* Search Button */}
+      <div className="search-btn">
+        <button>ძებნა</button>
+      </div>
+    </div>
   );
 }
 
