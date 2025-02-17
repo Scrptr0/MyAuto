@@ -7,13 +7,13 @@ function SideBar({ setVehicleType, ...filterProps }) {
       {/* Select Vehicle Type */}
       <div className="car-selector">
         <button className="car" onClick={() => setVehicleType("car")}>
-          <img src="\src\photos\car.png" alt="Car" />
+          <img src="\src\photos\car.svg" alt="Car" />
         </button>
         <button className="tractor" onClick={() => setVehicleType("tractor")}>
           <img src="\src\photos\tractor.png" alt="Tractor" />
         </button>
         <button className="bike" onClick={() => setVehicleType("moto")}>
-          <img src="\src\photos\moto.png" alt="Motorcycle" />
+          <img src="\src\photos\moto.svg" alt="Motorcycle" />
         </button>
       </div>
 

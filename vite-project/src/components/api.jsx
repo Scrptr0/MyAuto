@@ -1,4 +1,3 @@
-// src/components/api.jsx
 import axios from "axios";
 
 // Fetch manufacturers
@@ -22,3 +21,19 @@ export const fetchCategories = async () => {
     return [];
   }
 };
+
+
+// API URL მანქანის პროდუქტებისთვის
+const API_URL = "https://api2.myauto.ge/ka/products/";
+
+// ფუნქცია მანქანების მონაცემების მოსატანად API-დან
+export const fetchCarListings = async () => {
+  try {
+    const response = await axios.get(API_URL);
+    return response.data.data.items || []; // ვაბრუნებთ მონაცემებს ან ცარიელ მასივს
+  } catch (error) {
+    console.error("მონაცემების მოპოვების შეცდომა:", error);
+    return [];
+  }
+};
+

@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import SideBar from "./components/SideBar.jsx";
+import  SideBar from "./components/SideBar.jsx";
+import Main from "./components/Main.jsx"; // Import Main component
 import { fetchManufacturers, fetchCategories } from "./components/api.jsx"; // Update the path here
+
 
 function App() {
   const [manufacturers, setManufacturers] = useState([]);
@@ -38,6 +40,7 @@ function App() {
         manufacturers={filteredManufacturers}
         categories={categories}
       />
+      <Main />
     </div>
   );
 }
