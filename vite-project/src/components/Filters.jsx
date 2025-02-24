@@ -9,27 +9,22 @@ function Filters({
   category,
   setCategory,
   categories,
+  models,
+  selectedModel,
+  setSelectedModel,
 }) {
   return (
     <div className="properties">
-      {/* გაყიდვის ტიპი */}
+      {/* Transaction Type */}
       <label>გარიგების ტიპი</label>
-      <select
-        className="sale-type"
-        value={saleType}
-        onChange={(e) => setSaleType(e.target.value)}>
+      <select className="sale-type" value={saleType} onChange={(e) => setSaleType(e.target.value)}>
         <option value="1">იყიდება</option>
         <option value="2">ქირავდება</option>
-
       </select>
 
-      {/* მწარმოებელი */}
+      {/* Manufacturer */}
       <label>მწარმოებელი</label>
-      <select
-        className="model"
-        value={selectedManufacturer}
-        onChange={(e) => setSelectedManufacturer(e.target.value)}
-      >
+      <select className="model" value={selectedManufacturer} onChange={(e) => setSelectedManufacturer(e.target.value)}>
         <option value="">ყველა მწარმოებელი</option>
         {manufacturers.map((brand) => (
           <option key={brand.man_id} value={brand.man_id}>
@@ -38,13 +33,25 @@ function Filters({
         ))}
       </select>
 
-      {/* კატეგორია */}
-      <label>კატეგორია</label>
+      {/* Models (Disabled if No Options Available) */}
+      <label>მოდელი</label>
       <select
-        className="category"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
+        className="models"
+        value={selectedModel}
+        onChange={(e) => setSelectedModel(e.target.value)}
+        disabled={models.length === 0} // Lock dropdown if no models available
       >
+        <option value="">ყველა მოდელი</option>
+        {models.map((model) => (
+          <option key={model.model_id} value={model.model_id}>
+            {model.model_name}
+          </option>
+        ))}
+      </select>
+
+      {/* Category */}
+      <label>კატეგორია</label>
+      <select className="category" value={category} onChange={(e) => setCategory(e.target.value)}>
         <option value="">ყველა კატეგორია</option>
         {categories.map((cat) => (
           <option key={cat.category_id} value={cat.category_id}>
@@ -52,7 +59,6 @@ function Filters({
           </option>
         ))}
       </select>
-
     </div>
   );
 }
