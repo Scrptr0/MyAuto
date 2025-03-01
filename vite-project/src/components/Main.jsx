@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
-import { fetchCarListings, fetchManufacturers } from "./api.jsx"; // API-ის იმპორტი
+import { fetchCarListings, fetchManufacturers } from "./api.jsx";
 
-const Main = () => {
+const Main = ({ selectedManufacturer, selectedModel }) => {
   const [cars, setCars] = useState([]);
   const [manufacturers, setManufacturers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,19 +24,26 @@ const Main = () => {
     loadData();
   }, []);
 
-  // მანქანის მწარმოებლის პოვნა ID-დან
+  // Manufacturer name lookup by ID
   const getCarName = (manId) => {
     const manufacturer = manufacturers.find((man) => man.man_id === manId);
-    return manufacturer ? manufacturer.man_name : "უცნობი ბრენდი";
+    return manufacturer ? manufacturer.man_name : "";
   };
 
+  // Apply Manufacturer & Model Filters
+  const filteredCars = cars.filter(
+    (car) =>
+      (!selectedManufacturer || car.man_id == selectedManufacturer) &&
+      (!selectedModel || car.model_id == selectedModel)
+  );
+  
   return (
     <div className="container">
       {loading ? (
         <p className="loading-text">იტვირთება...</p>
-      ) : cars.length > 0 ? (
+      ) : filteredCars.length > 0 ? (
         <div className="grid">
-          {cars.map((car) => (
+          {filteredCars.map((car) => (
             <div key={car.car_id || car.id} className="car-card">
               <div className="car-image-container">
                 <img
