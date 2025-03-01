@@ -47,7 +47,7 @@ const Main = ({ selectedManufacturer, selectedModel }) => {
             <div key={car.car_id || car.id} className="car-card">
               <div className="car-image-container">
                 <img
-                  src={car.photo || "https://via.placeholder.com/150"}
+                  src={`https://static.my.ge/myauto/photos/${car.photo}/thumbs/${car.car_id}_1.jpg?v=${car.photo_ver}`} alt={car.car_model}
                   alt={getCarName(car.man_id)}
                   className="car-image"
                 />
